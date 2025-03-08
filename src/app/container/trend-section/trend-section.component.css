@@ -1,0 +1,8 @@
+.heart-icon {
+  color: white;
+  transition: color 0.3s ease-in-out;
+}
+
+.heart-icon.liked {
+  color: red;
+}

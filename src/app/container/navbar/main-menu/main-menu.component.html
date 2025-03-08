@@ -1,0 +1,38 @@
+<div class="flex justify-between items-center gap-3 relative">
+  <ng-container *ngFor="let item of vogueChain">
+    <div *ngIf="item === 'More'" class="relative">
+      <button
+        (click)="toggleDropdown(item)"
+        class="text-xs font-normal text-white flex items-center gap-1"
+      >
+        {{ item }}
+        <img
+          src="assets/icons/dropdown-icon.svg"
+          alt=""
+          class="w-[10px] h-[10px]"
+        />
+      </button>
+      <div
+        *ngIf="dropdowns[item]"
+        class="absolute -left-5 mt-2 w-25 bg-[#212749] text-white rounded-md shadow-lg"
+      >
+        <a href="#" class="block px-4 py-2 text-xs hover:text-black w-[90%] mx-auto border-b border-white"
+          >Stats</a
+        >
+        <a href="#" class="block px-4 py-2 text-xs hover:text-black w-[90%] mx-auto border-b border-white"
+          >About Us</a
+        >
+        <a href="#" class="block px-4 py-2 text-xs hover:text-black w-[90%] mx-auto"
+          >Community</a
+        >
+      </div>
+    </div>
+    <a
+      *ngIf="item !== 'More'"
+      class="text-xs font-normal text-white"
+      href=""
+    >
+      {{ item }}
+    </a>
+  </ng-container>
+</div>

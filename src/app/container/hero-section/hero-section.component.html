@@ -1,0 +1,70 @@
+<div class="flex flex-col gap-3">
+  <div class="flex justify-around items-center" #counterSection>
+    <div class="flex flex-col gap-5">
+      <h1 class="text-white text-5xl font-bold">
+        Clothes are the <br />
+        Spirit of Fashion
+      </h1>
+      <p class="text-[#9d959f] text-sm">
+        Discover the future of fashion <br />
+        with VogueChain.
+      </p>
+      <div class="flex gap-3">
+        <app-button
+          label="Explore Now"
+          type="submit"
+          class="w-[90px] h-[35px] bg-[#8f3bf3] text-white text-xs rounded-lg cursor-pointer"
+        ></app-button>
+        <app-button
+          label="Create"
+          type="submit"
+          class="w-[80px] h-[35px] bg-[#99878d] text-white text-xs rounded-lg opacity-50 cursor-pointer"
+        ></app-button>
+      </div>
+      <div class="flex justify-between items-center gap-3">
+        <div class="flex flex-col">
+          <p class="text-white text-lg font-bold text-center">
+            {{ brandsCount }}+
+          </p>
+          <p class="text-sm font-normal text-[#9d959f]">Brands</p>
+        </div>
+        <div class="flex flex-col">
+          <p class="text-white text-lg font-bold text-center">
+            {{ designersCount }}k+
+          </p>
+          <p class="text-sm font-normal text-[#9d959f]">Fashion Designer</p>
+        </div>
+        <div class="flex flex-col">
+          <p class="text-white text-lg font-bold text-center">
+            {{ showsCount }}+
+          </p>
+          <p class="text-sm font-normal text-[#9d959f]">Fashion Shows</p>
+        </div>
+      </div>
+    </div>
+    <div>
+      <img
+        src="assets/images/hero-image.svg"
+        alt=""
+        class="w-sm h-[400px] cursor-pointer"
+      />
+    </div>
+  </div>
+  <div class="flex justify-around items-center">
+    <img
+      src="assets/images/adidas-logo.svg"
+      alt=""
+      class="w-32 cursor-pointer"
+    />
+    <img
+      src="assets/images/puma-logo.svg"
+      alt=""
+      class="w-32 cursor-pointer"
+    />
+    <img
+      src="assets/images/lacoste-logo.svg"
+      alt=""
+      class="w-32 cursor-pointer"
+    />
+  </div>
+</div>

@@ -1,11 +1,15 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { ContainerComponent } from './container/container.component';
+import { SharedModule } from './shared/shared.module';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
+  imports: [
+    ContainerComponent,
+    SharedModule,
+  ],
 })
 export class AppComponent {
   title = 'VogueChain';

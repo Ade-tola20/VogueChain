@@ -1,0 +1,88 @@
+<div class="flex flex-col mt-10 p-4 gap-3">
+  <div>
+    <h2 class="text-lg font-bold text-white text-center">All Collection</h2>
+    <p class="text-[#9d959f] text-sm text-center">
+      Worlds First Layer 2 Fashion Marketplace
+    </p>
+  </div>
+  <div class="flex justify-evenly items-center mt-10">
+    <div class="flex flex-col gap-3">
+      <img
+        src="assets/icons/gas-fee-icon.svg"
+        alt=""
+        class="w-[50px] h-[50px] mx-auto"
+      />
+      <p class="text-sm font-normal text-white text-center">No Gas Fees</p>
+    </div>
+    <div class="flex flex-col gap-3">
+      <img
+        src="assets/icons/nft-icon.svg"
+        alt=""
+        class="w-[50px] h-[50px] mx-auto"
+      />
+      <p class="text-sm font-normal text-white text-center">
+        Carbon Neutral NFTs
+      </p>
+    </div>
+    <div class="flex flex-col gap-3">
+      <img
+        src="assets/icons/transaction-icon.svg"
+        alt=""
+        class="w-[50px] h-[50px] mx-auto"
+      />
+      <p class="text-sm font-normal text-white text-center">
+        Fast And Easy Transactions
+      </p>
+    </div>
+  </div>
+  <div class="flex justify-center items-center gap-6 mt-10 p-4">
+    <app-button
+      *ngFor="let button of buttons; let i = index"
+      [label]="button"
+      type="submit"
+      class="w-[110px] h-[25px] text-white text-xs rounded-lg cursor-pointer"
+      [ngClass]="{
+        'bg-[#8f3bf3]': selectedButtonIndex === i,
+        'bg-[#3d3953]': selectedButtonIndex !== i
+      }"
+      (click)="selectButton(i)"
+    ></app-button>
+  </div>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10 p-4 mx-auto">
+    <div
+      *ngFor="let product of products"
+      class="w-3xs bg-[#3d3953] opacity-75 p-4 rounded-lg shadow-lg text-white"
+    >
+      <img
+        [src]="product.imageURL"
+        [alt]="product.artistName"
+        class="w-xs h-[250px] object-cover rounded-lg"
+      />
+      <div class="flex justify-between mt-3">
+        <div>
+          <h3 class="text-sm font-normal">{{ product.artistName }}</h3>
+          <p class="text-xs font-medium mt-1">{{ product.brand }}</p>
+        </div>
+        <div>
+          <p class="text-xs font-light">Current price</p>
+          <p class="text-sm font-medium">{{ product.price }} ETH</p>
+        </div>
+      </div>
+      <div class="flex justify-around items-center mt-3">
+        <fa-icon
+          [icon]="faHeart"
+          class="cursor-pointer heart-icon"
+          [ngClass]="{ liked: product.isLiked }"
+          (click)="toggleLike(product)"
+        ></fa-icon>
+
+        <app-button
+          class="w-[170px] h-[35px] bg-[#8f3bf3] text-white text-xs rounded-lg cursor-pointer"
+          [label]="'Buy Now'"
+          type="submit"
+        ></app-button>
+      </div>
+    </div>
+  </div>
+</div>
