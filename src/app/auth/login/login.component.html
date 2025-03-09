@@ -1,0 +1,52 @@
+<div class="flex justify-around items-center my-auto h-screen">
+  <div>
+    <img
+      src="assets/icons/user-icon.svg"
+      alt=""
+      class="w-24 cursor-pointer mx-auto"
+    />
+    <p class="text-base text-white font-semibold text-center">
+      Explore the world of meta fashion
+    </p>
+  </div>
+  <div class="w-xs h-xl bg-[#464b67] rounded-lg flex flex-col gap-3 p-6">
+    <h2 class="text-base font-semibold text-white">Sign up</h2>
+    <span class="text-xs font-light text-white"
+      >New User?
+      <a routerLink="/sign-up" class="text-[#5a539c]">Create Account</a>
+    </span>
+    <form class="flex flex-col gap-6" (submit)="login()">
+      <input
+        type="email"
+        placeholder="Email Address"
+        class="w-3xs border-b-1 border-[#818091] placeholder:text-xs placeholder:text-[#818091]"
+        onfocus="this.style.fontSize = '10px'; this.style.color = 'white'"
+        this.style.fontSize="10px"
+      />
+      <div class="relative">
+        <input
+          [type]="isPasswordVisible ? 'text' : 'password'"
+          placeholder="Password"
+          class="w-3xs border-b-1 border-[#818091] placeholder:text-xs placeholder:text-[#818091]"
+          onfocus="this.style.fontSize = '10px'; this.style.color = 'white'"
+        />
+        <fa-icon
+          [icon]="isPasswordVisible ? faEyeSlash : faEye"
+          class="absolute right-5 top-1/2 transform -translate-y-1/2 cursor-pointer text-white"
+          (click)="togglePasswordVisibility()"
+        ></fa-icon>
+      </div>
+
+      <p class="text-red-500" *ngIf="errorMessage">{{ errorMessage }}</p>
+      
+      <div class="flex justify-end gap-3">
+        <app-button
+          class="w-[120px] h-[35px] bg-[#8f3bf3] text-white text-xs rounded-2xl cursor-pointer"
+          [label]="'Login'"
+          type="submit"
+          routerLink=""
+        ></app-button>
+      </div>
+    </form>
+  </div>
+</div>

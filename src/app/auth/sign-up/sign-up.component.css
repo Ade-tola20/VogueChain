@@ -1,0 +1,8 @@
+/* Remove the default outline and full border on focus */
+input:focus,
+select:focus {
+  outline: none; /* Removes the default outline */
+  border: none; /* Removes the full border */
+  border-bottom: 1px solid #818091; /* Ensures only the bottom border is visible */
+}
+
