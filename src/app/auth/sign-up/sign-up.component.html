@@ -1,0 +1,118 @@
+<div class="flex justify-around items-center my-auto h-screen">
+  <div>
+    <img
+      src="assets/icons/user-icon.svg"
+      alt=""
+      class="w-24 cursor-pointer mx-auto"
+    />
+    <p class="text-base text-white font-semibold text-center">
+      Begin your meta fashion journey <br />
+      here
+    </p>
+  </div>
+  <div class="w-xs h-xl bg-[#464b67] rounded-lg flex flex-col gap-3 p-6">
+    <h2 class="text-base font-semibold text-white">Sign up</h2>
+    <span class="text-xs font-light text-white"
+      >Already a Member?
+      <a routerLink="/login" class="text-[#5a539c]">Sign In</a>
+    </span>
+    <form class="flex flex-col gap-6" (submit)="signUp()">
+      <input
+        type="email"
+        placeholder="Email Address"
+        class="w-3xs border-b-1 border-[#818091] placeholder:text-xs placeholder:text-[#818091]"
+        onfocus="this.style.fontSize = '10px'; this.style.color = 'white'"
+        this.style.fontSize="10px"
+      />
+      <div class="flex items-center gap-10">
+        <input
+          type="name"
+          placeholder="First Name"
+          class="w-[110px] border-b-1 border-[#818091] placeholder:text-xs placeholder:text-[#818091]"
+          onfocus="this.style.fontSize = '10px'; this.style.color = 'white'"
+        />
+        <input
+          type="name"
+          placeholder="Last Name"
+          class="w-[110px] border-b-1 border-[#818091] placeholder:text-xs placeholder:text-[#818091]"
+          onfocus="this.style.fontSize = '10px'; this.style.color = 'white'"
+        />
+      </div>
+      <div class="relative">
+        <input
+          [type]="isPasswordVisible ? 'text' : 'password'"
+          placeholder="Password"
+          class="w-3xs border-b-1 border-[#818091] placeholder:text-xs placeholder:text-[#818091]"
+          onfocus="this.style.fontSize = '10px'; this.style.color = 'white'"
+        />
+        <fa-icon
+          [icon]="isPasswordVisible ? faEyeSlash : faEye"
+          class="absolute right-5 top-1/2 transform -translate-y-1/2 cursor-pointer text-white"
+          (click)="togglePasswordVisibility()"
+        ></fa-icon>
+      </div>
+      <div class="flex flex-col gap-3">
+        <label for="" class="text-xs text-[#818091]">Date Of Birth</label>
+        <div class="flex items-center gap-5">
+          <select
+            name="Month"
+            id="month"
+            [(ngModel)]="selectedMonth"
+            class="text-xs text-[#818091] border-b-1 border-[#818091]"
+          >
+            <option value="" disabled selected class="text-xs">Month</option>
+            <option
+              *ngFor="let month of months"
+              [ngValue]="month"
+              class="text-xs text-black"
+            >
+              {{ month }}
+            </option>
+          </select>
+
+          <select
+            name="Day"
+            id="day"
+            [(ngModel)]="selectedDay"
+            class="text-xs text-[#818091] border-b-1 border-[#818091]"
+          >
+            <option value="" disabled selected class="text-xs">Day</option>
+            <option
+              *ngFor="let day of days"
+              [ngValue]="day"
+              class="text-xs text-black"
+            >
+              {{ day }}
+            </option>
+          </select>
+
+          <select
+            name="Year"
+            id="year"
+            [(ngModel)]="selectedYear"
+            class="text-xs text-[#818091] border-b-1 border-[#818091]"
+          >
+            <option value="" disabled selected class="text-xs">Year</option>
+            <option
+              *ngFor="let year of years"
+              [ngValue]="year"
+              class="text-xs text-black"
+            >
+              {{ year }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <p class="text-red-500" *ngIf="errorMessage">{{ errorMessage }}</p>
+
+      <div class="flex justify-end gap-3">
+        <app-button
+          class="w-[120px] h-[35px] bg-[#8f3bf3] text-white text-xs rounded-2xl cursor-pointer"
+          [label]="'Create Account'"
+          type="submit"
+        ></app-button>
+      </div>
+    </form>
+  </div>
+</div>

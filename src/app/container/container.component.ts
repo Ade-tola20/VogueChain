@@ -9,6 +9,7 @@ import { FooterComponent } from './footer/footer.component';
 
 @Component({
   selector: 'container',
+  standalone: true,
   imports: [
     NavbarComponent,
     HeroSectionComponent,

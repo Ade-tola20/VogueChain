@@ -16,21 +16,36 @@
         *ngIf="dropdowns[item]"
         class="absolute -left-5 mt-2 w-25 bg-[#212749] text-white rounded-md shadow-lg"
       >
-        <a href="#" class="block px-4 py-2 text-xs hover:text-black w-[90%] mx-auto border-b border-white"
+        <a
+          routerLink="/stats"
+          class="block px-4 py-2 text-xs hover:text-black w-[90%] mx-auto border-b border-white"
           >Stats</a
         >
-        <a href="#" class="block px-4 py-2 text-xs hover:text-black w-[90%] mx-auto border-b border-white"
+        <a
+          routerLink="/about-us"
+          class="block px-4 py-2 text-xs hover:text-black w-[90%] mx-auto border-b border-white"
           >About Us</a
         >
-        <a href="#" class="block px-4 py-2 text-xs hover:text-black w-[90%] mx-auto"
+        <a
+          routerLink="/community"
+          class="block px-4 py-2 text-xs hover:text-black w-[90%] mx-auto"
           >Community</a
         >
       </div>
     </div>
+
     <a
-      *ngIf="item !== 'More'"
+      *ngIf="item === 'Get Started'"
+      routerLink="/sign-up"
       class="text-xs font-normal text-white"
-      href=""
+    >
+      {{ item }}
+    </a>
+
+    <a
+      *ngIf="item !== 'More' && item !== 'Get Started'"
+      [routerLink]="'/' + item.toLowerCase()"
+      class="text-xs font-normal text-white"
     >
       {{ item }}
     </a>
