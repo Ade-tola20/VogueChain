@@ -13,11 +13,23 @@
       *ngIf="isDropdownOpen"
       class="absolute -left-3 top-6 mt-2 w-25 bg-[#212749] text-white rounded-md shadow-lg"
     >
-      <a href="#" class="block px-4 py-2 text-xs whitespace-nowrap hover:text-black w-[90%] mx-auto border-b border-white"
+      <a
+        href="#"
+        class="block px-4 py-2 text-xs whitespace-nowrap hover:text-black w-[90%] mx-auto border-b border-white"
         >View Profile</a
       >
-      <a href="#" class="block px-4 py-2 text-xs hover:text-black w-[90%] mx-auto border-b border-white">Settings</a>
-      <a href="#" class="block px-4 py-2 text-xs hover:text-black w-[90%] mx-auto">Logout</a>
+      <a
+        href="#"
+        class="block px-4 py-2 text-xs hover:text-black w-[90%] mx-auto border-b border-white"
+        >Settings</a
+      >
+      <a
+        href="#"
+        class="block px-4 py-2 text-xs hover:text-black w-[90%] mx-auto"
+        *ngIf="isLoggedIn"
+        (click)="logout()"
+        >Logout</a
+      >
     </div>
     <span
       (click)="toggleDropdown()"

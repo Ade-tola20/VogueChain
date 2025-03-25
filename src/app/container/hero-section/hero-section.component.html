@@ -14,11 +14,13 @@
           label="Explore Now"
           type="submit"
           class="w-[90px] h-[35px] bg-[#8f3bf3] text-white text-xs rounded-lg cursor-pointer"
+          (click)="navigateToPage('/explore')"
         ></app-button>
         <app-button
           label="Create"
           type="submit"
           class="w-[80px] h-[35px] bg-[#99878d] text-white text-xs rounded-lg opacity-50 cursor-pointer"
+          (click)="navigateToPage('/create')"
         ></app-button>
       </div>
       <div class="flex justify-between items-center gap-3">

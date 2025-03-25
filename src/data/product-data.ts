@@ -8,6 +8,9 @@ export interface Product {
   items_left: number;
   imageURL: string;
   slug: string;
+  verifiedBrand?: boolean;
+  verifiedArtist?: boolean;
+  newdrop?: boolean;
 }
 
 export const PRODUCTS: Product[] = [
@@ -22,6 +25,8 @@ export const PRODUCTS: Product[] = [
     imageURL: 'assets/nfts/3lau-nft.svg',
     slug: 'the-air-max-90',
     isLiked: false,
+    verifiedBrand: false,
+    verifiedArtist: true,
   },
   {
     id: 2,
@@ -34,6 +39,8 @@ export const PRODUCTS: Product[] = [
     imageURL: 'assets/nfts/6529-nft.svg',
     slug: 'the-air-max-95',
     isLiked: false,
+    verifiedBrand: true,
+    verifiedArtist: true,
   },
   {
     id: 3,
@@ -46,6 +53,8 @@ export const PRODUCTS: Product[] = [
     imageURL: 'assets/nfts/al6z-nft.svg',
     slug: 'the-air-max-97',
     isLiked: false,
+    verifiedBrand: true,
+    verifiedArtist: true,
   },
   {
     id: 4,
@@ -58,54 +67,78 @@ export const PRODUCTS: Product[] = [
     imageURL: 'assets/nfts/seneca-nft.svg',
     slug: 'the-air-max-270',
     isLiked: false,
+    verifiedBrand: true,
+    verifiedArtist: true,
   },
   {
     id: 5,
     artistName: 'Amanda Cassat',
     description:
       'The Air Max 720 is another newer sneaker from Nike that features a large air unit for comfort. It is known for its futuristic design.',
-    brand: 'Fenty',
+    brand: 'Alexander Wang',
     price: 0.025,
     items_left: 2,
     imageURL: 'assets/nfts/cassat-nft.svg',
     slug: 'the-air-max-720',
     isLiked: false,
+    verifiedBrand: true,
+    verifiedArtist: false,
   },
   {
     id: 6,
     artistName: 'Andrea Oshea',
     description:
       'The Air Max 720 is another newer sneaker from Nike that features a large air unit for comfort. It is known for its futuristic design.',
-    brand: 'Louis Vuitton',
+    brand: 'Alexander Wang',
     price: 0.03,
     items_left: 2,
     imageURL: 'assets/nfts/oshea-nft.svg',
     slug: 'the-air-max-720',
     isLiked: false,
+    verifiedBrand: true,
+    verifiedArtist: true,
   },
   {
     id: 7,
     artistName: 'Auroboros',
     description:
       'The Air Max 720 is another newer sneaker from Nike that features a large air unit for comfort. It is known for its futuristic design.',
-    brand: 'Lacoste',
+    brand: 'Nzxt',
     price: 0.035,
     items_left: 2,
     imageURL: 'assets/nfts/auroboros-nft.svg',
     slug: 'the-air-max-720',
     isLiked: false,
+    verifiedBrand: false,
+    verifiedArtist: false,
   },
   {
     id: 8,
     artistName: 'Anyma',
     description:
       'The Air Max 720 is another newer sneaker from Nike that features a large air unit for comfort. It is known for its futuristic design.',
-    brand: 'Nike',
+    brand: 'Nzxt',
     price: 0.04,
     items_left: 2,
     imageURL: 'assets/nfts/anyma-nft.svg',
     slug: 'the-air-max-720',
     isLiked: false,
+    verifiedBrand: false,
+    verifiedArtist: false,
+  },
+  {
+    id: 9,
+    artistName: 'Azuki',
+    description:
+      'The Air Max 720 is another newer sneaker from Nike that features a large air unit for comfort. It is known for its futuristic design.',
+    brand: 'Azuki',
+    price: 0.045,
+    items_left: 2,
+    imageURL: 'assets/nfts/azuki-nft.svg',
+    slug: 'the-air-max-720',
+    isLiked: false,
+    verifiedBrand: false,
+    verifiedArtist: false,
   },
   {
     id: 9,
@@ -118,5 +151,38 @@ export const PRODUCTS: Product[] = [
     imageURL: 'assets/nfts/azuki-nft.svg',
     slug: 'the-air-max-720',
     isLiked: false,
+    verifiedBrand: true,
+    verifiedArtist: false,
+    newdrop: true,
+  },
+  {
+    id: 9,
+    artistName: 'Azuki',
+    description:
+      'The Air Max 720 is another newer sneaker from Nike that features a large air unit for comfort. It is known for its futuristic design.',
+    brand: 'Adidas',
+    price: 0.045,
+    items_left: 2,
+    imageURL: 'assets/nfts/azuki-nft.svg',
+    slug: 'the-air-max-720',
+    isLiked: false,
+    verifiedBrand: true,
+    verifiedArtist: false,
+    newdrop: true,
+  },
+  {
+    id: 9,
+    artistName: 'Azuki',
+    description:
+      'The Air Max 720 is another newer sneaker from Nike that features a large air unit for comfort. It is known for its futuristic design.',
+    brand: 'Adidas',
+    price: 0.045,
+    items_left: 2,
+    imageURL: 'assets/nfts/azuki-nft.svg',
+    slug: 'the-air-max-720',
+    isLiked: false,
+    verifiedBrand: true,
+    verifiedArtist: false,
+    newdrop: true,
   },
 ];

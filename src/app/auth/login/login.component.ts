@@ -21,6 +21,12 @@ import { AuthService } from '../../service/auth.service';
   styleUrl: './login.component.css',
 })
 export class LoginComponent {
+  email = '';
+  password = '';
+  errorMessage = '';
+  
+  constructor(private authService: AuthService, private router: Router) {}
+
   faEye = faEye;
   faEyeSlash = faEyeSlash;
 
@@ -30,17 +36,13 @@ export class LoginComponent {
     this.isPasswordVisible = !this.isPasswordVisible;
   }
 
-  email: string = '';
-  password: string = '';
-  errorMessage: string = '';
-
-  constructor(private authService: AuthService, private router: Router) {}
-
-  login() {
-    if (this.authService.login(this.email, this.password)) {
-      this.router.navigate(['/container']); // Navigate to the container page after login
-    } else {
-      this.errorMessage = 'Invalid email or password';
+  async login() {
+    try {
+      await this.authService.login(this.email, this.password);
+      alert('Login successful!');
+      this.router.navigate(['/']);
+    } catch (error: any) {
+      this.errorMessage = error.message;
     }
   }
 }

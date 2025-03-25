@@ -2,8 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faEye } from '@fortawesome/free-solid-svg-icons';
-import { faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { FormsModule } from '@angular/forms';
 import { ButtonComponent } from '../../shared/components/button/button.component';
 import { AuthService } from '../../service/auth.service';
@@ -24,7 +23,6 @@ import { AuthService } from '../../service/auth.service';
 export class SignUpComponent {
   faEye = faEye;
   faEyeSlash = faEyeSlash;
-
   isPasswordVisible = false;
 
   months: string[] = [
@@ -49,34 +47,30 @@ export class SignUpComponent {
   );
 
   selectedMonth: string = '';
-  selectedDay: string = ''; // Change from null to ''
-  selectedYear: string = ''; // Change from null to ''
+  selectedDay: string = '';
+  selectedYear: string = '';
 
   togglePasswordVisibility() {
     this.isPasswordVisible = !this.isPasswordVisible;
   }
 
-  email: string = '';
-  firstName: string = '';
-  lastName: string = '';
-  password: string = '';
-  errorMessage: string = '';
+  email = '';
+  firstName= '';
+  lastName= '';
+  password = '';
+  errorMessage = '';
 
   constructor(private authService: AuthService, private router: Router) {}
 
-  signUp() {
-    const user = {
-      email: this.email,
-      firstName: this.firstName,
-      lastName: this.lastName,
-      password: this.password,
-    };
-
-    const response = this.authService.register(user);
-    if (response === 'User registered successfully') {
+  async signup() {
+    try {
+      await this.authService.register(this.email, this.password);
+      alert('Registration successful!');
       this.router.navigate(['/login']);
-    } else {
-      this.errorMessage = response;
+    } catch (error: any) {
+      this.errorMessage = error.message;
     }
   }
+
+  
 }

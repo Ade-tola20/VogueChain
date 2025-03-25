@@ -41,6 +41,7 @@
       [label]="button"
       type="submit"
       class="w-[110px] h-[25px] text-white text-xs rounded-lg cursor-pointer"
+      
       [ngClass]="{
         'bg-[#8f3bf3]': selectedButtonIndex === i,
         'bg-[#3d3953]': selectedButtonIndex !== i
@@ -62,7 +63,7 @@
       <div class="flex justify-between mt-3">
         <div>
           <h3 class="text-sm font-normal">{{ product.artistName }}</h3>
-          <p class="text-xs font-medium mt-1">{{ product.brand }}</p>
+          <p class="text-[10px] font-normal mt-1 italic">{{ product.brand }}</p>
         </div>
         <div>
           <p class="text-xs font-light">Current price</p>
@@ -81,6 +82,7 @@
           class="w-[170px] h-[35px] bg-[#8f3bf3] text-white text-xs rounded-lg cursor-pointer"
           [label]="'Buy Now'"
           type="submit"
+          (click)="navigateToPage('/purchase')"
         ></app-button>
       </div>
       

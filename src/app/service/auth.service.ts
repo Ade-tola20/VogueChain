@@ -1,28 +1,56 @@
 import { Injectable } from '@angular/core';
+import {
+  Auth,
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+  signOut,
+  User,
+} from '@angular/fire/auth';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  private users: any[] = []; // Temporary storage (replace with backend API)
+  private userSubject = new BehaviorSubject<User | null>(null);
+  user$ = this.userSubject.asObservable(); // Observable to track user state
 
-  constructor() {}
+  constructor(private auth: Auth) {
+    this.auth.onAuthStateChanged((user) => {
+      this.userSubject.next(user);
+    });
+  }
 
-  register(user: any): string {
-    const existingUser = this.users.find((u) => u.email === user.email);
-    if (existingUser) {
-      return 'User already exists';
+  async login(email: string, password: string) {
+    return signInWithEmailAndPassword(this.auth, email, password);
+  }
+
+  async register(email: string, password: string) {
+    return createUserWithEmailAndPassword(this.auth, email, password);
+  }
+
+  async logout() {
+    console.log('Logging out...');
+    
+    try {
+      await signOut(this.auth);
+      this.userSubject.next(null);
+      console.log('User logged out successfully');
+
+      localStorage.clear();
+      sessionStorage.clear();
+  
+      setTimeout(() => {
+        window.location.href = '/login';
+      }, 100);
+    } catch (error) {
+      console.error('Error during logout:', error);
     }
-    this.users.push(user);
-    localStorage.setItem('users', JSON.stringify(this.users)); // Save to local storage
-    return 'User registered successfully';
   }
 
-  login(email: string, password: string): boolean {
-    const users = JSON.parse(localStorage.getItem('users') || '[]');
-    const user = users.find(
-      (u: any) => u.email === email && u.password === password
-    );
-    return !!user;
+  isLoggedIn(): boolean {
+    return this.auth.currentUser !== null;
   }
+  
+  
 }

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { SharedModule } from './shared/shared.module';
 import { RouterOutlet } from '@angular/router';
+import { NavbarComponent } from './container/navbar/navbar.component';
+import { FooterComponent } from './container/footer/footer.component';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +12,8 @@ import { RouterOutlet } from '@angular/router';
   imports: [
     SharedModule,
     RouterOutlet,
+    NavbarComponent,
+    FooterComponent
   ],
 })
 export class AppComponent {

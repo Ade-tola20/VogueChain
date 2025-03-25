@@ -1,8 +1,9 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { ButtonComponent } from '../../../shared/components/button/button.component';
 import { PRODUCTS, Product } from '../../../../data/creators-data';
+import { Router } from '@angular/router'; // ✅ Import Router for navigation
+import { AuthService } from '../../../service/auth.service';
 
 @Component({
   selector: 'creator-section',
@@ -10,16 +11,20 @@ import { PRODUCTS, Product } from '../../../../data/creators-data';
   imports: [CommonModule, ButtonComponent],
   templateUrl: './creator-section.component.html',
   styleUrl: './creator-section.component.css',
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class CreatorSectionComponent {
-  products: Product[] = PRODUCTS.map((product) => ({
+  products: Product[] = PRODUCTS.filter(product => product.id <= 3).map((product) => ({
     ...product,
-    isLiked: false,
-    isFollowed: false, // Add a property to track follow status
+    isFollowed: false,
   }));
 
+  constructor(private authService: AuthService, private router: Router) {}
+
   toggleFollow(product: Product) {
-    product.isFollowed = !product.isFollowed;
+    if (!this.authService.isLoggedIn()) {
+      this.router.navigate(['/login']);
+    } else {
+      product.isFollowed = !product.isFollowed;
+    }
   }
 }

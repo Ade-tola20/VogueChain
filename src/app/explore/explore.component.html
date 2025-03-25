@@ -1,0 +1,59 @@
+<main class="flex flex-col items-center justify-center h-full">
+  <h2 class="text-2xl text-white font-bold mt-10">Explore Collections</h2>
+  <div class="flex justify-center items-center gap-6 mt-10 p-4">
+    <app-button
+      *ngFor="let button of buttons; let i = index"
+      [label]="button"
+      type="submit"
+      class="w-[110px] h-[25px] text-white text-xs rounded-lg cursor-pointer"
+      [ngClass]="{
+        'bg-[#8f3bf3]': selectedButtonIndex === i,
+        'bg-[#3d3953]': selectedButtonIndex !== i
+      }"
+      (click)="selectButton(i)"
+    ></app-button>
+  </div>
+
+  <div class="flex flex-col mt-10 p-4 gap-3">
+
+    <div
+      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4 mx-auto"
+    >
+      <div
+        *ngFor="let product of products"
+        class="w-3xs bg-[#3d3953] opacity-75 rounded-lg shadow-lg text-white"
+      >
+        <img
+          [src]="product.creatorBg"
+          [alt]="product.artistName"
+          class="w-full h-[150px] object-cover rounded-lg"
+        />
+        <div class="flex flex-col justify-between items-center -mt-2">
+          <img
+            [src]="product.imageURL"
+            [alt]="product.artistName"
+            class="w-[60px] h-[60px] object-cover rounded-lg"
+          />
+          <div class="flex items-center gap-2">
+            <h3 class="text-sm font-normal">{{ product.artistName }}</h3>
+            <img
+              [src]="product.verifiedIcon"
+              [alt]="product.artistName"
+              class="w-[10px] h-[10px] object-cover rounded-lg"
+            />
+          </div>
+          <p class="text-xs font-normal mt-1 text-center">
+            {{ product.motto }}
+          </p>
+        </div>
+        <div class="flex justify-center items-center my-3">
+          <img
+            [src]="product.paymentMethod"
+            [alt]="product.artistName"
+            class="w-[10px] h-[20px]"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
