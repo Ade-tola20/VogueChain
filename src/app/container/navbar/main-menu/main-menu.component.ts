@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
+import { AuthService } from '../../../service/auth.service';
 
 @Component({
   selector: 'main-menu',
@@ -15,8 +16,30 @@ export class MainMenuComponent {
   dropdowns: { [key: string]: boolean } = {
     More: false,
   };
+  isAuthenticated: boolean = false;
+
+  constructor(private authService: AuthService, private router: Router) {
+    this.authService.user$.subscribe((user) => {
+      this.isAuthenticated = !!user;
+    });
+  }
 
   toggleDropdown(menu: string) {
     this.dropdowns[menu] = !this.dropdowns[menu];
+  }
+
+  getRouterLink(item: string): string {
+    switch (item) {
+      case 'Home':
+        return '/';
+      case 'Explore':
+        return '/explore';
+      case 'Drop':
+        return '/drop';
+      case 'Get Started':
+        return '/sign-up';
+      default:
+        return '#';
+    }
   }
 }

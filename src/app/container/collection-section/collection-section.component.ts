@@ -5,6 +5,8 @@ import { ButtonComponent } from '../../shared/components/button/button.component
 import { PRODUCTS, Product } from '../../../data/product-data';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
+import { Router } from '@angular/router';
+import { AuthService } from '../../service/auth.service';
 
 @Component({
   selector: 'collection-section',
@@ -15,10 +17,20 @@ import { faHeart } from '@fortawesome/free-solid-svg-icons';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class CollectionSectionComponent {
-  products: Product[] = PRODUCTS.map((product) => ({
+  constructor(private authService: AuthService, private router: Router) {}
+
+  navigateToPage(route: string) {
+    if (this.authService.isLoggedIn()) {
+      this.router.navigate([route]);
+    } else {
+      this.router.navigate(['/login']);
+    }
+  }
+  allProducts: Product[] = PRODUCTS.filter(product => product.id <= 6).map((product) => ({
     ...product,
     isLiked: false,
   }));
+  products: Product[] = [...this.allProducts];
   selectedButtonIndex: number = 0;
   faHeart = faHeart;
 
@@ -27,11 +39,25 @@ export class CollectionSectionComponent {
     'Verified Brands',
     'Verified Artists',
     'New Drops',
-    'Live Shows',
   ];
 
   selectButton(index: number) {
     this.selectedButtonIndex = index;
+
+    switch (index) {
+      case 0:
+        this.products = [...this.allProducts];
+        break;
+      case 1:
+        this.products = this.allProducts.filter((product) => product.verifiedBrand);
+        break;
+      case 2:
+        this.products = this.allProducts.filter((product) => product.verifiedArtist);
+        break;
+      case 3:
+        this.products = this.allProducts.filter((product) => product.newdrop);
+        break;
+    }
   }
 
   toggleLike(product: Product) {

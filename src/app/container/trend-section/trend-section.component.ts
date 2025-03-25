@@ -7,6 +7,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { CreatorSectionComponent } from './creator-section/creator-section.component';
 import { BrandSectionComponent } from './brand-section/brand-section.component';
+import { Router } from '@angular/router';
+import { AuthService } from '../../service/auth.service';
 
 @Component({
   selector: 'trend-section',
@@ -23,6 +25,16 @@ import { BrandSectionComponent } from './brand-section/brand-section.component';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class TrendSectionComponent {
+  constructor(private authService: AuthService, private router: Router) {}
+
+  navigateToPage(route: string) {
+    if (this.authService.isLoggedIn()) {
+      this.router.navigate([route]);
+    } else {
+      this.router.navigate(['/login']);
+    }
+  }
+
   products: Product[] = PRODUCTS.map((product) => ({
     ...product,
     isLiked: false,

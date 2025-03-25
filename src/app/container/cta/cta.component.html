@@ -1,4 +1,4 @@
-<div
+<main
   class="w-[800px] h-[250px] bg-[#8f3bf3] rounded-xl flex flex-col justify-center items-center mx-auto my-10 gap-5"
 >
   <h2 class="text-white text-center text-2xl font-bold">
@@ -7,8 +7,8 @@
   </h2>
   <app-button
     class="w-[100px] h-[35px] bg-[#bf96f6] text-white text-xs rounded-lg border cursor-pointer"
-    [label]="'Get started'"
-    routerLink="/sign-up"
+    [label]="isLoggedIn ? 'Explore' : 'Get started'"
+    (click)="navigateToPage()"
     type="submit"
   ></app-button>
-</div>
+</main>
