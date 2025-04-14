@@ -1,0 +1,112 @@
+<main class="flex flex-col justify-center items-center space-y-6">
+  <span
+    class="text-[#6C5DD3] text-sm font-medium relative pb-0.5 mt-20 after:content-[''] after:block after:w-3/4 after:h-[1px] after:bg-[#6C5DD3] after:absolute after:left-1/2 after:bottom-0 after:-translate-x-1/2"
+  >
+    About Us
+  </span>
+  <div class="flex flex-col items-center space-y-6">
+    <h2 class="text-3xl font-bold text-white">Who we are.</h2>
+    <p class="text-[#50546e] text-[10px] font-medium text-center">
+      Empowering brands to create, list and trade NFTs seamlessly. <br />
+      Bridging the gap between fashion and blockchain by providing <br />
+      a unique platform for digital ownership and innovation. Discover the
+      <br />
+      future of fashion with VogueChain.
+    </p>
+    <app-button
+      label="More +"
+      type="submit"
+      class="w-[60px] h-[30px] bg-[#8f3bf3] text-white text-xs rounded-lg cursor-pointer"
+    ></app-button>
+  </div>
+
+  <div class="flex items-center gap-[20vw]">
+    <div>
+      <span
+        class="text-[#6C5DD3] text-xs font-normal relative pb-0.5 after:content-[''] after:block after:w-3/4 after:h-[1px] after:bg-[#6C5DD3] after:absolute after:left-1/2 after:bottom-0 after:-translate-x-1/2"
+      >
+        Since 2014
+      </span>
+      <div class="flex flex-col space-y-4">
+        <h2 class="text-3xl font-bold text-white">What We Do</h2>
+        <p class="text-[#50546e] text-xs font-medium text-left">
+          Empowering brands to create, list and trade NFTs seamlessly. <br />
+          Bridging the gap between fashion and blockchain by providing <br />
+          a unique platform for digital ownership and innovation. Discover the
+          <br />
+          future of fashion with VogueChain.
+        </p>
+        <app-button
+          label="More +"
+          type="submit"
+          class="w-[60px] h-[30px] bg-[#8f3bf3] text-white text-xs rounded-lg cursor-pointer"
+        ></app-button>
+      </div>
+    </div>
+    <div>
+      <img
+        src="assets/images/about-do.svg"
+        alt="dropdown"
+        class="w-[250px] h-[350px]"
+      />
+    </div>
+  </div>
+  <div class="flex items-center gap-[20vw]">
+    <div>
+      <img
+        src="assets/images/about-start.svg"
+        alt="dropdown"
+        class="w-[250px] h-[350px]"
+      />
+    </div>
+    <div>
+      <div class="flex flex-col space-y-4">
+        <h2 class="text-3xl font-bold text-white">When We Started</h2>
+        <p class="text-[#50546e] text-xs font-medium text-left">
+          Empowering brands to create, list and trade NFTs seamlessly. <br />
+          Bridging the gap between fashion and blockchain by providing <br />
+          a unique platform for digital ownership and innovation. Discover the
+          <br />
+          future of fashion with VogueChain.
+        </p>
+        <app-button
+          label="More +"
+          type="submit"
+          class="w-[60px] h-[30px] bg-[#8f3bf3] text-white text-xs rounded-lg cursor-pointer"
+        ></app-button>
+      </div>
+    </div>
+  </div>
+
+  <div class="space-y-4">
+    <h2 class="text-3xl font-bold text-white text-center">Our Makers</h2>
+    <p class="text-[#50546e] text-[10px] font-medium text-center">
+      Empowering brands to create, list and trade NFTs seamlessly. <br />
+      Bridging the gap between fashion and blockchain by providing <br />
+      a unique platform for digital ownership and innovation. Discover the
+      <br />
+      future of fashion with VogueChain.
+    </p>
+
+    <div
+      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10 p-4 mx-auto"
+    >
+      <div
+        *ngFor="let product of products"
+        class="w-3xs p-4 rounded-lg text-white"
+      >
+        <img
+          [src]="product.imageURL"
+          [alt]="product.memberName"
+          class="w-xs h-[250px] object-cover rounded-lg"
+        />
+        <div class="flex flex-col justify-between items-center mt-3">
+          <h3 class="text-sm font-normal">{{ product.memberName }}</h3>
+          <span class="bg-[#545066] w-[80px] h-[20px] pt-1 rounded-lg text-[10px] text-center font-normal mt-1 whitespace-nowrap">
+            {{ product.role }}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

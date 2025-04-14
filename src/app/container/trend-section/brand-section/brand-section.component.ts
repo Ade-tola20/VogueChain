@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { ButtonComponent } from '../../../shared/components/button/button.component';
 import { PRODUCTS, Product } from '../../../../data/brand-data';
-import { Router } from '@angular/router'; // ✅ Import Router for navigation
+import { Router } from '@angular/router';
 import { AuthService } from '../../../service/auth.service';
 
 @Component({

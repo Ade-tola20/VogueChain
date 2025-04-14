@@ -2,7 +2,8 @@ import { Routes, provideRouter, withDebugTracing } from '@angular/router';
 import { SignUpComponent } from './auth/sign-up/sign-up.component';
 import { LoginComponent } from './auth/login/login.component';
 import { ContainerComponent } from './container/container.component';
-import { ExploreComponent } from './explore/explore.component';
+import { ExploreComponent } from './pages/explore/explore.component';
+import { AboutPageComponent } from './pages/about-page/about-page.component';
 import { AuthGuardService } from './service/auth-guard.service';
 
 export const routes: Routes = [
@@ -15,6 +16,10 @@ export const routes: Routes = [
   {
     path: 'explore',
     component: ExploreComponent,
+  },
+  {
+    path: 'about',
+    component: AboutPageComponent,
   },
   { path: 'dashboard', component: ContainerComponent, canActivate: [AuthGuardService] },
 ];

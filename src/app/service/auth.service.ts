@@ -4,6 +4,8 @@ import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   signOut,
+  signInWithPopup,
+  GoogleAuthProvider,
   User,
 } from '@angular/fire/auth';
 import { BehaviorSubject } from 'rxjs';
@@ -52,5 +54,17 @@ export class AuthService {
     return this.auth.currentUser !== null;
   }
   
+  async googleLogin() {
+    try {
+      const provider = new GoogleAuthProvider();
+      const result = await signInWithPopup(this.auth, provider);
+      this.userSubject.next(result.user);
+      console.log('Google sign-in success:', result.user);
+      return result.user;
+    } catch (error) {
+      console.error('Google sign-in error:', error);
+      throw error;
+    }
+  }
   
 }

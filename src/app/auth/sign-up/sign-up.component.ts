@@ -72,5 +72,14 @@ export class SignUpComponent {
     }
   }
 
+  async signUpWithGoogle() {
+    try {
+      await this.authService.googleLogin(); 
+      alert('Signed up with Google!');
+      this.router.navigate(['/']); 
+    } catch (error: any) {
+      this.errorMessage = error.message;
+    }
+  }
   
 }

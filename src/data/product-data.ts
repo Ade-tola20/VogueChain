@@ -141,7 +141,7 @@ export const PRODUCTS: Product[] = [
     verifiedArtist: false,
   },
   {
-    id: 9,
+    id: 10,
     artistName: 'Azuki',
     description:
       'The Air Max 720 is another newer sneaker from Nike that features a large air unit for comfort. It is known for its futuristic design.',
@@ -156,7 +156,7 @@ export const PRODUCTS: Product[] = [
     newdrop: true,
   },
   {
-    id: 9,
+    id: 11,
     artistName: 'Azuki',
     description:
       'The Air Max 720 is another newer sneaker from Nike that features a large air unit for comfort. It is known for its futuristic design.',
@@ -171,7 +171,7 @@ export const PRODUCTS: Product[] = [
     newdrop: true,
   },
   {
-    id: 9,
+    id: 12,
     artistName: 'Azuki',
     description:
       'The Air Max 720 is another newer sneaker from Nike that features a large air unit for comfort. It is known for its futuristic design.',
