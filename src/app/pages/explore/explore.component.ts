@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { ButtonComponent } from '../shared/components/button/button.component';
+import { ButtonComponent } from '../../shared/components/button/button.component';
 import { CommonModule } from '@angular/common';
-import {PRODUCTS, Product} from '../../data/creators-data';
+import {PRODUCTS, Product} from '../../../data/creators-data';
 
 @Component({
   selector: 'app-explore',
